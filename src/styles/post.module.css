@@ -1,0 +1,20 @@
+.hdiv {
+  max-width: 50%;
+  margin: 56px auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.maindiv {
+  max-width: 259px !important;
+  height: 342px !important;
+  margin: 5px 5px;
+  border-color: #e2e8f0;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+}
+.image {
+  display: block;
+  margin: 2px auto !important;
+  max-width: 89% !important;
+  height: 64% !important;
+  border-radius: 5%;
+}

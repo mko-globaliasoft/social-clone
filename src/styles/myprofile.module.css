@@ -1,0 +1,72 @@
+.hdiv {
+  max-width: 50%;
+  margin: 0px auto;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+}
+.mainDiv {
+  padding-top: 14px;
+  max-width: 38%;
+  display: flex;
+  justify-content: space-between;
+}
+.image {
+  display: block;
+  margin-top: 5px;
+  width: 100px;
+  margin-left: 42px;
+  height: 104px;
+  border-radius: 50%;
+}
+.cameraPic {
+  width: 27px;
+  cursor: pointer;
+  margin-top: -22px;
+  margin-left: 72px;
+}
+.editDiv {
+  padding: 10px 78px;
+}
+.uDiv {
+  height: 181px;
+}
+.contentDiv {
+  padding-top: 15px;
+  padding-left: 30px;
+}
+.bDiv {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 7px 5px;
+}
+.friendDiv {
+  margin-top: 22px;
+  width: 143px;
+  margin-left: 19px;
+  display: flex;
+  justify-content: space-around;
+}
+.profileimage {
+  padding: 50px;
+  background-color: green;
+  transition: transform 0.2s; /* Animation */
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  transition: transform 0.2s;
+}
+.profileimage:hover {
+  transform: scale(1.5);
+}
+.btn-filter-page {
+  background: #ddd;
+}
+.buttonDiv {
+  margin: 7px 26% !important;
+  width: 100%;
+  height: 50px;
+  display: flex;
+}
+.button {
+  font-size: 18px !important;
+  width: 200px !important;
+}

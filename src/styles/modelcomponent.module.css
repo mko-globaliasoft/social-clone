@@ -1,0 +1,12 @@
+.bDiv {
+  display: flex;
+}
+
+.maindiv {
+  font-size: 15px !important;
+  max-width: 171px !important;
+  height: 188px !important;
+  margin: 5px 5px;
+  border-color: #e2e8f0;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+}
