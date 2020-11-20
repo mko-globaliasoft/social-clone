@@ -17,7 +17,11 @@ const Notification = (props) => {
     const notacceptuser = props.userData.Followers.filter(
       (request) => request.accept === 0
     );
+    notAcceptRequest()
+  }, []);
 
+
+  const notAcceptRequest = () => {
     axios
       .get(`${API}/getrequest`, {
         headers: {
@@ -30,9 +34,9 @@ const Notification = (props) => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }
+
   const acceptHandle = (id) => {
-    console.log(",............", id);
     axios
       .post(
         `${API}/acceptrequest`,
@@ -47,37 +51,13 @@ const Notification = (props) => {
       )
       .then((data) => {
         toast.success("Request accepted");
+        notAcceptRequest()
       })
       .catch(() => {
-        toast.err("There is some error");
+        toast.error("There is some error");
       });
   };
-  // const ID = [];
-  // const allID = notacceptuser.filter((obj) => ID.push(obj.request_by));
-  // console.log("...........", ID);
 
-  // axios.get(`${API}/alluser`, {
-  //   headers: {
-  //     Authorization: "Bearer " + localStorage.getItem('jwt')
-  //   }
-  // }).then((res) => {
-  //   res.data.userData.map((user) => {
-  //     return user._id = '', user.Password = '', user.tokens = [], user.lastlogin = ''
-  //   })
-  //   setallUser(res.data.userData)
-  // }).catch((err) => {
-  //   console.log(err)
-  // })
-
-  // console.log(
-  //   "././././",
-  //   allUser.filter((user) => {
-  //     return [requestUser.filter((request) => request.request_by === user._id)];
-  //   })
-  // );
-
-  console.log("All UserRequest", requestUser);
-  // console.log("All User", allUser);
   return (
     <>
       <div className={style.mainDiv}>
@@ -101,7 +81,6 @@ const Notification = (props) => {
                   }
                 </h1>
               </div>
-              {console.log(",,,,,,,,,,,,,", user.request_by)}
               <div className={style.buttonDiv}>
                 <Button
                   onClick={() => acceptHandle(user.request_by._id)}

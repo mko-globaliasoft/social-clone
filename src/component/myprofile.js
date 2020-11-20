@@ -21,7 +21,6 @@ const Myprofile = (props) => {
 
   // To change Profile image
 
-  console.log("UserSatte", props);
   const inputEl = useRef(null);
 
   const triggerInput = () => {
@@ -57,7 +56,7 @@ const Myprofile = (props) => {
     setPostavail(true);
 
     const userData = props.user.userData;
-    if(userData.Followers){
+    if (userData.Followers) {
       setFollowers(userData.Followers.filter((user) => user.accept).length);
     }
     setUsername(userData.Username);
@@ -82,10 +81,10 @@ const Myprofile = (props) => {
       )
       .then((res) => {
         toast.success("Update successfully");
+        console.log("RESPONSE", res.data.userData)
         setUsername(res.data.userData.Username)
         setEmailid(res.data.userData.Emailid)
         props.userGet(res.data.userData);
-        console.log("Updates state", res.data.userData.Username);
         history.push("/myprofile");
       })
       .catch((err) => {
@@ -153,6 +152,7 @@ const Myprofile = (props) => {
               </div>
               <div className={style.contentDiv}>
                 <div>
+                  {console.log("Updated User info", Username, Emailid)}
                   <input
                     type="text"
                     value={Username}

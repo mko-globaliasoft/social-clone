@@ -1,6 +1,6 @@
-// const Local = 'http://localhost:8000'
+const Local = 'http://localhost:8000'
 const Devlopment = 'https://milan-facebook-node.herokuapp.com'
 
-const API = Devlopment
+const API = Local
 
 export default API
