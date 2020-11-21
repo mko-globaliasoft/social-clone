@@ -4,11 +4,11 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { Button, Spinner } from 'react-bootstrap'
 
-import SkeletonArticle from '../skeletons/SkeletonArticle'
 import API from "../apiconfi";
 import style from "../styles/home.module.css";
 import { postGet } from "../store/actions/post";
 import Modelcomponent from "./modelcomponent";
+import SkeletonProfile from "../skeletons/SkeletonProfile";
 
 
 const Home = (props) => {
@@ -44,7 +44,7 @@ const Home = (props) => {
   if (props.allPost.length === 0) {
     return (
       <>
-        {[1, 2, 3, 4, 5].map((n) => <SkeletonArticle key={n} theme="light" />)}
+        {[1, 2, 3, 4, 5].map((n) => <SkeletonProfile key={n} theme="light" />)}
       </>
     );
   }

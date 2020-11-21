@@ -13,6 +13,7 @@ const SkeletonProfile = ({ theme }) => {
         </div>
         <div>
           <SkeletonElement type="title" />
+          <SkeletonElement type="post" />
           <SkeletonElement type="text" />
           <SkeletonElement type="text" />
         </div>
