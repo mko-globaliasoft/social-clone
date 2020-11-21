@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
-import style from "../styles/home.module.css";
 import { connect } from "react-redux";
-import { postGet } from "../store/actions/post";
 import axios from "axios";
-import API from "../apiconfi";
 import { toast } from "react-toastify";
+import { Button, Spinner } from 'react-bootstrap'
+
+import SkeletonArticle from '../skeletons/SkeletonArticle'
+import API from "../apiconfi";
+import style from "../styles/home.module.css";
+import { postGet } from "../store/actions/post";
 import Modelcomponent from "./modelcomponent";
+
 
 const Home = (props) => {
   const [isLoad, setisLoad] = useState(true);
@@ -23,19 +27,6 @@ const Home = (props) => {
     setShow(true);
   };
 
-  // const requestsend = () => {
-  //     axios.post(`${API}/followrequest`, { ID: profileid }, {
-  //         headers: {
-  //             Authorization: "Bearer " + localStorage.getItem("jwt"),
-  //         },
-  //     }).then((res) => {
-  //         console.log(res)
-  //     }).catch((error) => {
-  //         console.log(error)
-  //     })
-  //     console.log("Hello world")
-  // }
-
   useEffect(() => {
     axios
       .get(`${API}/allpost`)
@@ -48,11 +39,12 @@ const Home = (props) => {
 
     setisLoad(false);
   }, []);
-  const allPost = props.allPost;
-  if (isLoad) {
+  // const allPost = props.allPost;
+
+  if (props.allPost.length === 0) {
     return (
       <>
-        <h1>Loading..</h1>
+        {[1, 2, 3, 4, 5].map((n) => <SkeletonArticle key={n} theme="dark" />)}
       </>
     );
   }
@@ -66,8 +58,8 @@ const Home = (props) => {
         userPost={userPost}
         loginData={props.loginUser}
       />
-      {allPost.length > 0 &&
-        allPost.map((post) => {
+      {props.allPost.length > 0 &&
+        props.allPost.map((post) => {
           return (
             <div
               class="max-w-sm rounded overflow-hidden shadow-lg"

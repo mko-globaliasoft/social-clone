@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
-import style from "../styles/post.module.css";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import API from "../apiconfi";
 import { connect } from 'react-redux'
-import { myPostGet } from '../store/actions/mypost'
 import { toast } from "react-toastify";
+
+
+import style from "../styles/post.module.css";
+import API from "../apiconfi";
+import { myPostGet } from '../store/actions/mypost'
+import SkeletonArticle from "../skeletons/SkeletonArticle";
+
 
 function Mypost(props) {
     // const [Mypost, setMypost] = useState([]);
@@ -56,11 +60,18 @@ function Mypost(props) {
     //     return <h1 style={{ color: "red", fontSize: "40px" }}>Loading...</h1>;
     // }
 
-    const Mypost = props.mypost
+    if (props.mypost.length === 0) {
+        return (
+            <>
+                {[1, 2, 3, 4, 5].map((n) => <SkeletonArticle key={n} theme="dark" />)}
+            </>
+        )
+    }
+
     return (
         <>
             <div className="container" className={style.hdiv} style={{ padding: "0px auto" }}>
-                {Mypost.map((mypost) => <>
+                {props.mypost.map((mypost) => <>
                     <div class="max-w-sm rounded overflow-hidden shadow-lg" className={style.maindiv}>
                         <img class={style.image} src={`${API}/Uploads/post/${mypost.Post}`} />
                         <div class="px-6 py-4">
