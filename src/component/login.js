@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import API from "../apiconfi";
-import { userGet } from '../store/actions/user'
 import { connect } from 'react-redux'
 import { toast } from "react-toastify";
+
+import API from "../apiconfi";
+import FacebookLogin from './facebooklogin/facebookLogin'
+import GoogleLogin from './facebooklogin/googleLogin'
+import { userGet } from '../store/actions/user'
+
 
 function Login(props) {
     const [Username, setUsername] = useState();
@@ -71,6 +75,8 @@ function Login(props) {
                     >
                         Login
           </button>
+                    <FacebookLogin />
+                    <GoogleLogin />
                 </div>
             </div>
         </div>

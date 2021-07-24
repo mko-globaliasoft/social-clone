@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { Button, Spinner } from 'react-bootstrap'
+// import { Button, Spinner } from 'react-bootstrap'
 
 import API from "../apiconfi";
 import style from "../styles/home.module.css";
