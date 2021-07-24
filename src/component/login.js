@@ -49,7 +49,7 @@ function Login(props) {
                     className="bg-white rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative z-10"
                 >
                     <h1 className="text-gray-900 text-lg mb-1 font-medium title-font">
-                        Login to our Site
+                        Login to  Site
           </h1>
                     <br />
                     <h3>Username</h3>
